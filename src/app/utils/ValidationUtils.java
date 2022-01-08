@@ -6,21 +6,21 @@ import app.exception.InvalidExpressionException;
 
 public class ValidationUtils<T> 
 {
-	public static String validatePrefixExpression(String expn)
-	{
-		Stack<Character> stkChar = new Stack<>();
-		char[] operands = 
-		
-		for(int i = 0; i < expn.length(); ++i)
-		{
-			if(expn.charAt(i) == '+' || expn.charAt(i) == '-' || expn.charAt(i) == '*' || expn.charAt(i) == '/' || expn.charAt(i) == '^')
-				stkChar.push(expn.charAt(i));
-			
-			if(expn.charAt(i) == )
-		}
-		
-		return expn;
-	}
+//	public static String validatePrefixExpression(String expn)
+//	{
+//		Stack<Character> stkChar = new Stack<>();
+//		char[] operands = 
+//		
+//		for(int i = 0; i < expn.length(); ++i)
+//		{
+//			if(expn.charAt(i) == '+' || expn.charAt(i) == '-' || expn.charAt(i) == '*' || expn.charAt(i) == '/' || expn.charAt(i) == '^')
+//				stkChar.push(expn.charAt(i));
+//			
+//			if(expn.charAt(i) == )
+//		}
+//		
+//		return expn;
+//	}
 	
 	public static String validateInfixExpression(String expn) throws InvalidExpressionException
 	{
@@ -42,9 +42,19 @@ public class ValidationUtils<T>
 		return expn;
 	}
 
-	private static void validateOccurences(char charAtCurrent, char charAtNext) 
+	private static void validateOccurences(char charAtCurrent, char charAtNext) throws InvalidExpressionException 
 	{
+		String charac1 = charAtCurrent+"";
+		String charac2 = charAtNext+"";
 		
+		String regexOperator = "(\\+|-|\\*|\\/|^)";
+		String regexOperand = "[a-z]";
+		
+		if(charac1.matches(regexOperand) && charac2.matches(regexOperand))
+			throw new InvalidExpressionException("Two operands found together!!!!!");
+		else
+			if(charac1.matches(regexOperator) && charac2.matches(regexOperator))
+				throw new InvalidExpressionException("Two operators found together!!!!!");
 	}
 
 	private static void validateCountOperatorOperand(String expn) throws InvalidExpressionException 
@@ -84,6 +94,6 @@ public class ValidationUtils<T>
 		}
 		
 		if(!stkChar.empty())
-			throw new InvalidExpressionException("Input Invalid Expression!!!!!!!!!");
+			throw new InvalidExpressionException("Uneven brackets!!!!!!!!!");
 	}
 }
