@@ -27,10 +27,10 @@ public class ValidationUtils<T>
 		int expnLength = expn.length();
 		
 		if(expn.charAt(0) == '+' || expn.charAt(0) == '-' || expn.charAt(0) == '*' || expn.charAt(0) == '/' || expn.charAt(0) == '^' || expn.charAt(0) == ')')
-			throw new InvalidExpressionException("Input Invalid Expression!!!!!!!!!");
+			throw new InvalidExpressionException("Invalid Expression!!!!!!!!!");
 		
 		if(expn.charAt(expnLength-1) == '+' || expn.charAt(expnLength-1) == '-' || expn.charAt(expnLength-1) == '*' || expn.charAt(expnLength-1) == '/' || expn.charAt(expnLength-1) == '^' || expn.charAt(expnLength-1) == '(')
-			throw new InvalidExpressionException("Input Invalid Expression!!!!!!!!!");
+			throw new InvalidExpressionException("Invalid Expression!!!!!!!!!");
 		
 		validateBrackets(expn);
 		
