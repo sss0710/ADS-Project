@@ -63,8 +63,8 @@ public class ValidationUtils<T>
 		int countOperand = 0;
 		
 		String charac;
-		String regexOperator = "(\\+|-|\\*|\\/|^)";
-		String regexOperand = "[a-z]";
+		String regexOperator = "(\\+|-|\\*|\\/|\\^)";
+		String regexOperand = "[A-z]";
 		for(int i = 0; i < expn.length(); i++)
 		{
 			charac = expn.charAt(i)+"";
@@ -77,7 +77,7 @@ public class ValidationUtils<T>
 		}
 		
 		if(countOperand != countOperator + 1)
-			throw new InvalidExpressionException("Please enter valid expression");
+			throw new InvalidExpressionException("Expression not balanced!!!");
 	}
 
 	private static void validateBrackets(String expn) throws InvalidExpressionException 
