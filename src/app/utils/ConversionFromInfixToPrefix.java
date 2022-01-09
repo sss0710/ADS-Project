@@ -2,7 +2,7 @@ package app.utils;
 
 import java.util.Stack;
 
-import app.binarytree.Node;
+import app.treenode.Node;
 
 public class ConversionFromInfixToPrefix
 {
