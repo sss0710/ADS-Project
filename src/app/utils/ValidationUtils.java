@@ -64,7 +64,7 @@ public class ValidationUtils<T>
 		
 		String charac;
 		String regexOperator = "(\\+|-|\\*|\\/|\\^)";
-		String regexOperand = "[A-z]";
+		String regexOperand = "[0-9A-z]";
 		for(int i = 0; i < expn.length(); i++)
 		{
 			charac = expn.charAt(i)+"";

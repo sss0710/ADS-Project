@@ -37,7 +37,7 @@ public class ConversionOfInfixToExpressionTree
 	        if (expnChar == '(') 
 	            stkChar.add(expnChar);
 	        else 
-	        	if (Character.isAlphabetic(expnChar))
+	        	if (Character.isLetterOrDigit(expnChar))
 	        	{
 	        		parent = new Node(expnChar+"");
 	        		stkNode.add(parent);
@@ -46,8 +46,7 @@ public class ConversionOfInfixToExpressionTree
 	        		if (precedence[expnChar] > 0)
 	        		{
 	        			while (!stkChar.isEmpty() && stkChar.peek() != '(' && 
-	            		((expnChar != '^' && precedence[stkChar.peek()] >= precedence[expnChar]) || 
-	            		(expnChar == '^' && precedence[stkChar.peek()] > precedence[expnChar])))
+	            		((expnChar != '^' && precedence[stkChar.peek()] >= precedence[expnChar]) || (expnChar == '^' && precedence[stkChar.peek()] > precedence[expnChar])))
 	        			{
 	        				parent = new Node(stkChar.peek()+"");
 	        				stkChar.pop();

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import app.exception.InvalidExpressionException;
 import app.treenode.Node;
-import app.utils.ConversionFromInfixToPrefix;
+import app.utils.ConversionOfInfixToExpressionTree;
 
 import static app.utils.ValidationUtils.validateInfixExpression;
 
@@ -15,7 +15,7 @@ public class MainProg
 		try(Scanner sc = new Scanner(System.in))
 		{
 			System.out.println("*****Welcome to the Expression Calculator*****");
-			ConversionFromInfixToPrefix conversion;
+			ConversionOfInfixToExpressionTree conversion;
 			
 			String infixExpression;
 			
@@ -41,7 +41,7 @@ public class MainProg
 						case 1:
 							System.out.println("Enter valid Infix Expression");
 							infixExpression = validateInfixExpression(sc.next());
-							conversion = new ConversionFromInfixToPrefix();
+							conversion = new ConversionOfInfixToExpressionTree();
 							root = conversion.creatingExpressionTreefromInfixExpression("(" + infixExpression.toLowerCase() + ")");
 						
 							System.out.println("The infix expression is : " +infixExpression +"\n");
@@ -79,7 +79,5 @@ public class MainProg
 				}
 			}
 		}
-
 	}
-
 }
